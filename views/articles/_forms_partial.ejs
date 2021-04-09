@@ -1,0 +1,16 @@
+<div class='form-group mb-4'>
+    <label for='titInp'>Название</label>
+    <input required type='text' value='<%= article.title%>' name='title' class='form-control' id='titInp'>
+</div>
+<div class='form-group mb-4'>
+    <label for='titInp'>Описание</label>
+    <textarea  type='text' name='description' class='form-control' id='titInp'><%= article.description%> </textarea>
+</div>
+<div class='form-group mb-4'>
+    <label for='titInp'>Подробное описание</label>
+    <textarea required type='text' class='form-control' name='markdown' id='titInp'><%= article.markdown%></textarea>
+</div>
+<button type='submit' class='btn btn-primary ml-4'>
+    Создать
+</button>
+<a href='/' class='btn btn-secondary'>Закрыть</a>
