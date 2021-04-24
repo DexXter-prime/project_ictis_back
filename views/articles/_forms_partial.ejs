@@ -1,15 +1,36 @@
+
+
 <div class='form-group mb-4'>
     <label for='titInp'>Название</label>
     <input required type='text' value='<%= article.title%>' name='title' class='form-control' id='titInp'>
 </div>
 <div class='form-group mb-4'>
-    <label for='titInp'>Описание</label>
-    <textarea  type='text' name='description' class='form-control' id='titInp'><%= article.description%> </textarea>
+    <label for='descInp'>Описание</label>
+    <textarea  type='text' name='description' class='form-control' id='descInp'><%= article.description%> </textarea>
 </div>
 <div class='form-group mb-4'>
-    <label for='titInp'>Подробное описание</label>
-    <textarea required type='text' class='form-control' name='markdown' id='titInp'><%= article.markdown%></textarea>
+    <label for='teachInp'>Преподаватель</label>
+    <input required type='text' value='<%= article.teacher%>' name='teacher' class='form-control' id='teachInp'>
 </div>
+
+<div class="input-group date mb-4" data-provide="datepicker">
+    <label for='dateDef'>Дата защиты проекта</label>
+    <input type="text" class="form-control" id='dateDef' name='dateDefense' value='<%= article.dateDefense%>'>
+    <div class="input-group-addon">
+        <span class="glyphicon glyphicon-th"></span>
+    </div>
+</div>
+
+<div class='form-group mb-4'>
+    <select class="form-select" aria-label="Default select example" name='status'>
+        <option selected>Статус проекта</option>
+        <option value="0">Проект Завершен</option>
+        <option value="1">Запись закрыта</option>
+        <option value="2">Запись открыта</option>
+    </select>
+</div>
+
+
 <button type='submit' class='btn btn-primary ml-4'>
     Создать
 </button>

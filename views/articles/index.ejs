@@ -18,14 +18,25 @@
             <div class='card mb-4'>
                 <div class='card-body'>
                     <div class='card-title'>
-                        <%= article.title %>
+                       Название: <%= article.title %>
                     </div>
+
+                    <div class='card-title'>
+                         Ведущий преподаватель: <%= article.teacher %>
+                    </div>
+                    
+                    <div class='card-title'>
+                        Статус проекта: <%= article.status %>
+                    </div>
+
                     <div class='card-subtitle text-muted'>
-                        <%= article.currentDate.toLocaleDateString()%>
+                       Дата защиты проекта: <%= article.dateDefense.toLocaleDateString() %>
                     </div>
+
                     <div class='card-text'>
                         <%= article.description%>
                     </div>
+
                     <a href='articles/<%= article.slug %>' class='btn btn-primary mt-4 mb-4'>Посмотреть описание</a>
                     <form action='articles/<%= article.id%>?_method=DELETE' method='POST' class='d-inline'>
                         <button type='submit' class='btn btn-danger' >Удалить</button>

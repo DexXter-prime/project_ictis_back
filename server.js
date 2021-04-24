@@ -4,7 +4,7 @@ const Article = require('./models/article')
 const methodOverride = require('method-override')
 const app = express()
 const articleRouter = require('./routes/articles')
-const URI = 'mongodb+srv://Dexter:123@cluster0.c8cf3.mongodb.net/handleProjects?retryWrites=true&w=majority'
+const URI = 'mongodb+srv://Dex:123@cluster0.s2fmp.mongodb.net/handleTheProjec?retryWrites=true&w=majority'
 
 try {
     mongoose.connect(URI, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }, () => {

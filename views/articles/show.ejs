@@ -13,7 +13,9 @@
 <body>
     <div class='container'>
         <h1 class='mb-4'><%= article.title %></h1>
-        <h3 class='text-muted'><%= article.currentDate.toLocaleDateString() %></h3>
+        <h2 class='mb-4'>Ведущий преподаватель: <%= article.teacher %></h2>
+        <h3 class='text-muted'>Дата защиты проекта: <%= article.dateDefense.toLocaleDateString() %></h3>
+
         <a href='/articles/edit/<%= article.id %>' class='mr-2 btn btn-secondary'>Поменять</a>
         <a href='/' class='btn btn-success'>Показать все проекты</a>
 

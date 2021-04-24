@@ -25,7 +25,12 @@ const saveArticleAndRedirect = (path) => {
         let article = req.article
         article.title = req.body.title
         article.description = req.body.description
-        article.markdown = req.body.markdown
+        article.teacher = req.body.teacher
+        article.dateDefense  = req.body.dateDefense
+        article.status = req.body.status
+
+        console.log(req.body.dateDefense)
+        console.log(typeof req.body.dateDefense)
 
         try {
             article = await article.save()
