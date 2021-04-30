@@ -29,7 +29,7 @@ const articleSchema = mongoose.Schema({
         required: true
     },
     status: {
-        type: String,
+        type: Number,
         required: true
     },
     dateDefense: {

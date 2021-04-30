@@ -17,6 +17,7 @@
     <title>Изменение текущего проекта</title>
 </head>
 <body>
+    <%- include('_forms_navbar.ejs') %>
     <div class='container'>
         <h1 class='mb-4'>Изменение текущего проекта</h1>
         <form action='/articles/<%= article.id %>?_method=PUT' method='POST'>
