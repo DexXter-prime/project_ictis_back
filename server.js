@@ -5,6 +5,7 @@ const app = express()
 const { auth, requiresAuth } = require('express-openid-connect')
 const cookieParser = require('cookie-parser')
 const mongoose = require('mongoose')
+const morgan = require('morgan')
 const Article = require('./models/article')
 const methodOverride = require('method-override')
 const articleRouter = require('./routes/articles')
@@ -26,6 +27,10 @@ try {
 app.set('views', __dirname + '/views')
 app.set('view engine', 'ejs')
 
+app.set('trust proxy', true)
+
+app.use(morgan('dev'))
+
 app.use(expressSession({secret: process.env.SECRET, resave: true, saveUninitialized: false}))
 app.use(express.urlencoded({extended: false}))
 app.use(cookieParser())
@@ -44,16 +49,9 @@ app.use(auth({
 
 app.use('/articles', articleRouter)
 
-app.get('/', async (req, res) => {
+app.get('/', requiresAuth(), async (req, res) => {
     let articles = await Article.find().sort( {currentDate: 'desc'})
     res.render('articles/index', {articles: articles})
-})
-
-// Example of a route that requires authorization
-// req.oidc.user - information about the user
-app.get('/userinfo', requiresAuth(), (req, res) => {
-    let user = req.oidc.user
-    res.json({user: user})
 })
 
 const PORT = process.env.PORT || 5000
